@@ -1,0 +1,26 @@
+{
+  "name": "hexlet_games",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+	"bin": {
+		"brain-games": "dist/bin/brain-games.js"
+	},
+	"files": [
+		"dist"
+	],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node",
+		"prepublishOnly": "npm run build",
+		"build": "NODE_ENV=production babel src --out-dir dist --source-maps inline"
+  },
+  "author": "Stainslav Raschinkin",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-preset-env": "*",
+    "babel-preset-stage-0": "*"
+  }
+}
