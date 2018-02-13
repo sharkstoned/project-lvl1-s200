@@ -1,6 +1,10 @@
 import readlineSync from 'readline-sync';
 import { getTask, getSolution } from './roundData';
 
+
+const NUMBER_OF_ROUNDS = 3;
+
+
 // Greets user and gets their name
 const greeting = (rules) => {
   console.log('Welcome to the Brain Games!');
@@ -36,8 +40,8 @@ const congratulate = (name) => {
   console.log(`\nCongratulations, ${name}!`);
 };
 
-// Represents whole game process
-const runGame = (numberOfRounds, rules, generator) => {
+// Represents whole game process with no number of rounds predefined
+const runGameUnsetIterations = (numberOfRounds, rules, generator) => {
   const userName = greeting(rules);
 
   const iter = (counter) => {
@@ -60,5 +64,7 @@ const runGame = (numberOfRounds, rules, generator) => {
   iter(numberOfRounds);
 };
 
+// Reprsents game process with predefined number of rounds
+const runGame = (rules, generator) => runGameUnsetIterations(NUMBER_OF_ROUNDS, rules, generator);
 
 export { runGame, greeting };

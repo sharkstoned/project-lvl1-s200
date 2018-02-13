@@ -1,10 +1,9 @@
-#!/usr/bin/env nodejs
 import { cons, car, cdr } from 'hexlet-pairs';
 import { runGame } from '..';
 import { makeRoundData } from '../roundData';
 
+
 const RULES = 'What is the result of the expression?';
-const NUMBER_OF_ROUNDS = 3;
 
 
 const roundGenerator = () => {
@@ -47,6 +46,6 @@ const roundGenerator = () => {
 };
 
 export default () => {
-  runGame(NUMBER_OF_ROUNDS, RULES, roundGenerator);
+  runGame(RULES, roundGenerator);
 };
 
