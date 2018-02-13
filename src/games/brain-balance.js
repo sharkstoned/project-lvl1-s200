@@ -1,23 +1,15 @@
 import { runGame } from '..';
 import { makeRoundData } from '../roundData';
-import { getMedian, getBalance } from '../utils';
+import { getMedian, getBalance, generateNumberOfLength } from '../utils';
 
 
 const RULES = 'Balance given number.';
+const MIN_NUM_LENGTH = 2;
+const MAX_NUM_LENGTH = 4;
 
 
 const roundGenerator = () => {
-  const generateNumber = () => {
-    let exp = 0;
-
-    do {
-      exp = Math.round((Math.random() * 10));
-    } while (exp < 2 || exp > 4);
-
-    return Math.round(Math.random() * (10 ** exp));
-  };
-
-  const task = generateNumber();
+  const task = generateNumberOfLength(MIN_NUM_LENGTH, MAX_NUM_LENGTH);
   const median = getMedian(task);
   const balance = getBalance(task);
   const prebalancedArray = Array(task.toString().length).fill(Math.floor(median));
