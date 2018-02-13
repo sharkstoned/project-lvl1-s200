@@ -1,8 +1,5 @@
 #!/usr/bin/env nodejs
-import { getUserName } from '..';
+import { greeting } from '..';
 
-console.log('Welcome to the Brain Games!');
-
-const name = getUserName('May I have your name? ');
-console.log(`Hello, ${name}!`);
+greeting();
 
