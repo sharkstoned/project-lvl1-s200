@@ -1,12 +1,17 @@
 // Generates random number of specified length
-const generateNumberOfLength = (min, max) => {
+const generateNumberOfLength = (min, max, allowNegative = false) => {
   let exp = 0;
+  let negativeCoef = 1;
 
   do {
     exp = Math.round((Math.random() * 10));
   } while (exp < min || exp > max);
 
-  return Math.round(Math.random() * (10 ** exp));
+  if (allowNegative) {
+    negativeCoef = Math.round(Math.random() * 10) % 2 ? 1 : -1;
+  }
+
+  return Math.round(Math.random() * (10 ** exp)) * negativeCoef;
 };
 
 // Finds sum of digits in the given number
