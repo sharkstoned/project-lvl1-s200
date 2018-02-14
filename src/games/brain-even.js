@@ -1,17 +1,20 @@
 import { runGame } from '..';
 import { makeRoundData } from '../roundData';
+import { generateNumberOfLength } from '../utils';
 
 
-const RULES = 'Answer "yes" if number is even, otherwise answer "no".';
+const rules = 'Answer "yes" if number is even, otherwise answer "no".';
+const minNumLength = 1;
+const maxNumLength = 3;
 
 
 const roundGenerator = () => {
-  const task = Math.trunc(Math.random() * (10 ** Math.trunc((Math.random() * 10) / 3)));
+  const task = generateNumberOfLength(minNumLength, maxNumLength);
   const solution = !(task % 2) ? 'yes' : 'no';
   return makeRoundData(task, solution);
 };
 
 export default () => {
-  runGame(RULES, roundGenerator);
+  runGame(rules, roundGenerator);
 };
 

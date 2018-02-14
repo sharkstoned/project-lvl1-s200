@@ -1,29 +1,25 @@
 import { cons, car, cdr } from 'hexlet-pairs';
 import { runGame } from '..';
 import { makeRoundData } from '../roundData';
+import { generateNumberOfLength, getGcd } from '../utils';
 
 
-const RULES = 'Find the greatest common divisor of given numbers.';
+const rules = 'Find the greatest common divisor of given numbers.';
+const minNumLength = 2;
+const maxNumLength = 3;
 
 
 const roundGenerator = () => {
-  const basicDivisor = Math.round(Math.random() * (10 ** Math.ceil((Math.random() * 10) / 5)));
-  const multipliers = cons(Math.round(Math.random() * 10), Math.round(Math.random() * 10));
+  const generateNumber = () => generateNumberOfLength(minNumLength, maxNumLength);
 
-  const getGcd = (a, b) => {
-    if (a === 0 || b === 0) {
-      return a + b;
-    }
+  const numbers = cons(generateNumber(), generateNumber());
 
-    return (a > b) ? getGcd(a % b, b) : getGcd(a, b % a);
-  };
-
-  const task = `${basicDivisor * car(multipliers)} ${basicDivisor * cdr(multipliers)}`;
-  const solution = (basicDivisor * getGcd(car(multipliers), cdr(multipliers))).toString();
+  const solution = getGcd(car(numbers), cdr(numbers)).toString();
+  const task = `${car(numbers)} ${cdr(numbers)}`;
   return makeRoundData(task, solution);
 };
 
 export default () => {
-  runGame(RULES, roundGenerator);
+  runGame(rules, roundGenerator);
 };
 

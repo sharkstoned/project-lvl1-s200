@@ -3,13 +3,13 @@ import { makeRoundData } from '../roundData';
 import { getMedian, getBalance, generateNumberOfLength } from '../utils';
 
 
-const RULES = 'Balance given number.';
-const MIN_NUM_LENGTH = 2;
-const MAX_NUM_LENGTH = 4;
+const rules = 'Balance given number.';
+const minNumLength = 2;
+const maxNumLength = 4;
 
 
 const roundGenerator = () => {
-  const task = generateNumberOfLength(MIN_NUM_LENGTH, MAX_NUM_LENGTH);
+  const task = generateNumberOfLength(minNumLength, maxNumLength);
   const median = getMedian(task);
   const balance = getBalance(task);
   const prebalancedArray = Array(task.toString().length).fill(Math.floor(median));
@@ -25,6 +25,6 @@ const roundGenerator = () => {
 };
 
 export default () => {
-  runGame(RULES, roundGenerator);
+  runGame(rules, roundGenerator);
 };
 

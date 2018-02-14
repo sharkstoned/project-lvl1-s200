@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 import { getTask, getSolution } from './roundData';
 
 
-const NUMBER_OF_ROUNDS = 3;
+const numberOfRounds = 3;
 
 
 // Greets user and gets their name
@@ -41,7 +41,7 @@ const congratulate = (name) => {
 };
 
 // Represents whole game process with no number of rounds predefined
-const runGameUnsetIterations = (numberOfRounds, rules, generator) => {
+const runGameUnsetIterations = (iterations, rules, generator) => {
   const userName = greeting(rules);
 
   const iter = (counter) => {
@@ -61,10 +61,10 @@ const runGameUnsetIterations = (numberOfRounds, rules, generator) => {
     }
   };
 
-  iter(numberOfRounds);
+  iter(iterations);
 };
 
 // Reprsents game process with predefined number of rounds
-const runGame = (rules, generator) => runGameUnsetIterations(NUMBER_OF_ROUNDS, rules, generator);
+const runGame = (rules, generator) => runGameUnsetIterations(numberOfRounds, rules, generator);
 
 export { runGame, greeting };

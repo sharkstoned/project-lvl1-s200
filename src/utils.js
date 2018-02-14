@@ -14,6 +14,15 @@ const generateNumberOfLength = (min, max, allowNegative = false) => {
   return Math.round(Math.random() * (10 ** exp)) * negativeCoef;
 };
 
+// Finds the greatest commin divisor
+const getGcd = (a, b) => {
+  if (a === 0 || b === 0) {
+    return a + b;
+  }
+
+  return (a > b) ? getGcd(a % b, b) : getGcd(a, b % a);
+};
+
 // Finds sum of digits in the given number
 const getSumOfDigits = (number) => {
   const iter = (acc, arr) => {
@@ -35,4 +44,4 @@ const getMedian = number => getSumOfDigits(number) / number.toString().length;
 const getBalance = number => getSumOfDigits(number) % number.toString().length;
 
 
-export { getSumOfDigits, getMedian, getBalance, generateNumberOfLength };
+export { getSumOfDigits, getMedian, getBalance, generateNumberOfLength, getGcd };

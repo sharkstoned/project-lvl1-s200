@@ -1,15 +1,16 @@
 import { cons, car, cdr } from 'hexlet-pairs';
 import { runGame } from '..';
 import { makeRoundData } from '../roundData';
+import { generateNumberOfLength } from '../utils';
 
 
-const RULES = 'What is the result of the expression?';
+const rules = 'What is the result of the expression?';
+const minNumLength = 1;
+const maxNumLength = 3;
 
 
 const roundGenerator = () => {
-  const generateNumber = () => Math.round(Math.random() *
-           (10 ** Math.round((Math.random() * 10) / 3)));
-
+  const generateNumber = () => generateNumberOfLength(minNumLength, maxNumLength, true);
   let operator = '';
   let solution = 0;
 
@@ -46,6 +47,6 @@ const roundGenerator = () => {
 };
 
 export default () => {
-  runGame(RULES, roundGenerator);
+  runGame(rules, roundGenerator);
 };
 

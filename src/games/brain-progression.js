@@ -3,15 +3,15 @@ import { makeRoundData } from '../roundData';
 import { generateNumberOfLength } from '../utils';
 
 
-const RULES = 'What number is missing in this progression?';
-const MIN_START_LENGTH = 2;
-const MAX_START_LENGTH = 2;
-const MIN_STEP_LENGTH = 1;
-const MAX_STEP_LENGTH = 2;
+const rules = 'What number is missing in this progression?';
+const minStartLength = 2;
+const maxStartLength = 2;
+const minStepLength = 1;
+const maxStepLength = 2;
 
 const roundGenerator = () => {
-  const firstItem = generateNumberOfLength(MIN_START_LENGTH, MAX_START_LENGTH, true);
-  const step = generateNumberOfLength(MIN_STEP_LENGTH, MAX_STEP_LENGTH, true);
+  const firstItem = generateNumberOfLength(minStartLength, maxStartLength, true);
+  const step = generateNumberOfLength(minStepLength, maxStepLength, true);
   const progressionArr = [];
 
   for (let i = 0; i < 10; i += 1) {
@@ -26,6 +26,6 @@ const roundGenerator = () => {
 };
 
 export default () => {
-  runGame(RULES, roundGenerator);
+  runGame(rules, roundGenerator);
 };
 
