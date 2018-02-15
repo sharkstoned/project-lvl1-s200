@@ -1,6 +1,6 @@
 import { runGame } from '..';
 import { makeRoundData } from '../roundData';
-import { generateNumberOfLength } from '../utils';
+import { generateNumberOfLength, isPrime } from '../utils';
 
 
 const rules = 'Is this number prime?';
@@ -9,17 +9,13 @@ const maxNumLength = 3;
 
 
 const roundGenerator = () => {
-// todo: validate 0 and 1
-  const task = generateNumberOfLength(minNumLength, maxNumLength);
-  let solution = 'yes';
+  let task = generateNumberOfLength(minNumLength, maxNumLength); 
 
-  for (let i = 2; i <= Math.sqrt(task); i += 1) {
-    if (!(task % i)) {
-      solution = 'no';
-    }
+  if (task <= 1) {
+    task += Math.random() * 10;
   }
 
-  return makeRoundData(task.toString(), solution);
+  return makeRoundData(task.toString(), isPrime(task) ? 'yes' : 'no');
 };
 
 export default () => {

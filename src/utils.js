@@ -43,5 +43,13 @@ const getMedian = number => getSumOfDigits(number) / number.toString().length;
 // Finds "unspent balance" with which digits should be increased
 const getBalance = number => getSumOfDigits(number) % number.toString().length;
 
+const isPrime = number => {
+  for (let i = 2; i <= Math.sqrt(number); i += 1) {
+    if (!(number % i)) {
+      return false;
+    }
+  }
+  return true;
+}
 
-export { getSumOfDigits, getMedian, getBalance, generateNumberOfLength, getGcd };
+export { getSumOfDigits, getMedian, getBalance, generateNumberOfLength, getGcd, isPrime };
