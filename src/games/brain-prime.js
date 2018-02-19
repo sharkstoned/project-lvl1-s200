@@ -9,7 +9,7 @@ const maxNumLength = 3;
 
 
 const roundGenerator = () => {
-  let task = generateNumberOfLength(minNumLength, maxNumLength); 
+  let task = generateNumberOfLength(minNumLength, maxNumLength);
 
   if (task <= 1) {
     task += Math.random() * 10;
